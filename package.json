@@ -5,19 +5,11 @@
   "main": "./srv/index.ts",
   "scripts": {
     "tsc": "./node_modules/typescript/bin/tsc",
-    "dev": "nodemon ./src/index.ts",
+    "dev": "nodemon ./src/app.ts",
     "postinstall": "npm run tsc",
-    "start": "nodemon src/index.ts",
-    "build": "rimraf dist && tsc",
-    "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add build",
+    "start": "node ./build/app.js",
     "test": "jest --verbose ./routes"
   },
-  "pre-commit": [
-    "ts.check",
-    "build",
-    "add-build"
-  ],
   "jest": {
     "testEnvironment": "node"
   },
