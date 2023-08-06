@@ -1,0 +1,56 @@
+{
+  "name": "server-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./srv/index.ts",
+  "scripts": {
+    "tsc": "./node_modules/typescript/bin/tsc",
+    "dev": "nodemon ./src/index.ts",
+    "postinstall": "npm run tsc",
+    "start": "nodemon src/index.ts",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add build",
+    "test": "jest --verbose ./routes"
+  },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+  ],
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.4",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.8.0",
+    "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/mongoose": "^5.11.97",
+    "@types/multer": "^1.4.7",
+    "@types/node": "^18.11.18",
+    "@types/nodemailer": "^6.4.7",
+    "jest": "^29.3.1",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^5.0.1",
+    "supertest": "^6.3.3",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4"
+  }
+}
